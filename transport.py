@@ -59,6 +59,7 @@ elif app_mode == 'Driver':
         ax.hist(data[dataname], bins=nbins)
         st.pyplot(fig)
     else:
+        st.image('gender.png')
         val_count  = data[dataname].value_counts()
         fig = plt.figure(figsize=(10,5))
         #sns.barplot(val_count.index, val_count.values, alpha=0.8)
