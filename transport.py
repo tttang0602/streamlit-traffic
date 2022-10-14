@@ -75,9 +75,8 @@ elif app_mode == 'Victims':
         ax.hist(data[dataname], bins=nbins)
         st.pyplot(fig)
     else:
-        val_count  = data[dataname].value_counts()
         fig = plt.figure(figsize=(10,5))
-        sns.barplot(val_count.index, val_count.values, alpha=0.8)
+        sns.countplot(x=data[dataname])
         #fig.title(dataname)
         #fig.ylabel('y label', fontsize=12)
         #fig.xlabel('x label', fontsize=12)
