@@ -65,7 +65,7 @@ elif app_mode == 'Driver':
         sns.barplot(val_count.index, val_count.values, alpha=0.8)
         st.pyplot(fig)        
 elif app_mode == 'Victims':
-    st.image('Picture1.jpg')
+    st.image('CorRplot.jpeg')
     data=pd.read_csv("victims.csv",na_values=['NA'])
     dataname = st.selectbox('Pick the data of your interest',['VICTIM_AGE','VICTIM_SEX','VICTIM_SEATING_POSITION'])
     data.loc[data['VICTIM_AGE']>200,'VICTIM_AGE']=np.NaN
