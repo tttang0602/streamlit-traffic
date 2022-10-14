@@ -30,6 +30,7 @@ if app_mode=='Home':
     fig, ax = plt.subplots()
     ax.hist(data['COLLISION_TIME'], bins=nbins)
     st.pyplot(fig)
+    st.header('Accident lighting conditions')
     st.markdown(
         """
         - A - Daylight
@@ -40,7 +41,9 @@ if app_mode=='Home':
 - -- Not Stated
 """	)
     fig = plt.figure(figsize=(10,5))
-    sns.countplot(x=data['LIGHTING'])    
+    sns.countplot(x=data['LIGHTING']) 
+    
+    map_data = pd.DataFrame(data[['lat','lon']])
     #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
     #map_data[map_data[0]==""] = np.NaN
     map_data = map_data.ffill()
