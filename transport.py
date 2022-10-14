@@ -42,7 +42,8 @@ if app_mode=='Home':
 """	)
     fig = plt.figure(figsize=(10,5))
     sns.countplot(x=data['LIGHTING']) 
-    
+    st.pyplot(fig)        
+
     map_data = pd.DataFrame(data[['lat','lon']])
     #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
     #map_data[map_data[0]==""] = np.NaN
