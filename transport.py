@@ -94,6 +94,17 @@ elif app_mode == 'Victims':
         ax.hist(data[dataname], bins=nbins)
         st.pyplot(fig)
     else:
+        if dataname=='VICTIM_SEATING_POSITION':
+            st.markdown("""
+            - 1 - Driver
+            - 2 thru 6 - Passengers
+            - 7 - Station Wagon Rear
+            - 8 - Rear Occupant of Truck or Van
+            - 9 - Position Unknown
+            - 0 - Other Occupants
+            - A thru Z - Bus Occupants
+            - -- Not Stated
+            """)
         fig = plt.figure(figsize=(10,5))
         sns.countplot(x=data[dataname])
         #fig.title(dataname)
