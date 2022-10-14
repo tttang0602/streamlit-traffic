@@ -40,7 +40,7 @@ if app_mode=='Home':
     #st.write(map_data.head())
     st.map(map_data)
 elif app_mode == 'Crash information':
-    st.image('Picture1.jpg')
+    st.image('CorRplot.jpeg')
     dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_THE_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
     data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
 ])
@@ -49,7 +49,7 @@ elif app_mode == 'Crash information':
     ax.hist(data[dataname], bins=nbins)
     st.pyplot(fig)
 elif app_mode == 'Driver':
-    st.image('Picture1.jpg')
+    st.image('CorRplot.jpeg')
     data=pd.read_csv("parties.csv",na_values=['NA'])
     dataname = st.selectbox('Pick the data of your interest',['PARTY_AGE','PARTY_SEX','PARTY_SOBRIETY','VEHICLE_YEAR','VEHICLE_MAKE'])
     st.write(data['PARTY_AGE'].dtype)
