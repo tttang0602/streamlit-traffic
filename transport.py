@@ -17,7 +17,14 @@ app_mode = st.sidebar.radio('Select Page',['Home','Crash information','Driver','
     
 if app_mode=='Home':
     st.title('Traffic Accident Data Analyze :')  
-    st.image('CorRplot.jpeg')
+    st.header('Car crashes data in Imperial County, CA')
+    map_data = pd.DataFrame(data[['lat','lon']])
+    #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
+    #map_data[map_data[0]==""] = np.NaN
+    map_data = map_data.ffill()
+    #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
+
+    st.map(map_data)
     st.header('Dataset :')
     data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
 ])
@@ -43,14 +50,10 @@ if app_mode=='Home':
     fig = plt.figure(figsize=(10,5))
     sns.countplot(x=data['LIGHTING']) 
     st.pyplot(fig)        
+    st.header('Correlation corner plot for factors relates to incidences')
+    st.image('CorRplot.jpeg')
 
-    map_data = pd.DataFrame(data[['lat','lon']])
-    #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
-    #map_data[map_data[0]==""] = np.NaN
-    map_data = map_data.ffill()
-    #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
 
-    st.map(map_data)
 elif app_mode == 'Crash information':
     st.image('CorRplot.jpeg')
     dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
