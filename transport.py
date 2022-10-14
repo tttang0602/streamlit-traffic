@@ -41,7 +41,7 @@ if app_mode=='Home':
     st.map(map_data)
 elif app_mode == 'Crash information':
     st.image('CorRplot.jpeg')
-    dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_THE_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
+    dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
     data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
 ])
     nbins=st.slider('Pick your bin size', 10,50)
