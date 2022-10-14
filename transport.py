@@ -71,7 +71,7 @@ elif app_mode == 'Crash information':
                 - A - Head-On
                 - B - Sideswipe
                 - C - Rear End
-                - D - Broadside
+                - D - Broadside: a car accident that occurs when the front of one vehicle slams into the side of another vehicle, typically at a high speed.
                 - E - Hit Object
                 - F - Overturned
                 - G - Vehicle/Pedestrian
