@@ -17,6 +17,13 @@ app_mode = st.sidebar.radio('Select Page',['Home','Crash information','Driver','
     
 if app_mode=='Home':
     st.title('Traffic Accident Data Analyze :')  
+    st.header('Dataset :')
+    data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
+])
+    
+    data.rename(columns={"POINT_X": "lon", "POINT_Y": "lat"},inplace = True)
+
+    st.write(data.head())
     st.header('Car crashes data in Imperial County, CA')
     map_data = pd.DataFrame(data[['lat','lon']])
     #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
@@ -25,13 +32,7 @@ if app_mode=='Home':
     #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
 
     st.map(map_data)
-    st.header('Dataset :')
-    data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
-])
-    
-    data.rename(columns={"POINT_X": "lon", "POINT_Y": "lat"},inplace = True)
-
-    st.write(data.head())
+ 
     st.header('Accident by time of the day ')
     nbins=st.slider('Pick your bin size', 10,50)
     fig, ax = plt.subplots()
