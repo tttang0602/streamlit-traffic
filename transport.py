@@ -59,7 +59,7 @@ elif app_mode == 'Driver':
         ax.hist(data[dataname], bins=nbins)
         st.pyplot(fig)
     else:
-        if dataname == 'PARTY_SEX'
+        if dataname == 'PARTY_SEX':
             st.image('gender.PNG')
         val_count  = data[dataname].value_counts()
         fig = plt.figure(figsize=(10,5))
