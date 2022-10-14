@@ -36,9 +36,10 @@ if app_mode=='Home':
     #map_data[map_data[0]==""] = np.NaN
     map_data = map_data.ffill()
     #st.write(map_data['lat'].dtypes,np.sum(map_data['lat'].isna()))
-
-    #st.write(map_data.head())
-    st.map(map_data)
+    df = pd.DataFrame(np.random.randn(800, 2) / [50, 50] + [46.34, -108.7],columns=['latitude', 'longitude'])
+    st.write(df.head())
+    st.write(map_data.head())
+    st.map(df)
 elif app_mode == 'Crash information':
     st.image('CorRplot.jpeg')
     dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
