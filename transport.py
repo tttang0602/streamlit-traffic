@@ -57,13 +57,30 @@ if app_mode=='Home':
 
 elif app_mode == 'Crash information':
     st.image('CorRplot.jpeg')
-    dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
+    dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','TYPE_OF_COLLISION','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
     data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
 ])
-    nbins=st.slider('Pick your bin number', 10,50)
-    fig, ax = plt.subplots()
-    ax.hist(data[dataname], bins=nbins)
-    st.pyplot(fig)
+    if is_numeric_dtype(data[dataname]):
+        nbins=st.slider('Pick your bin number', 10,50)
+        fig, ax = plt.subplots()
+        ax.hist(data[dataname], bins=nbins)
+        st.pyplot(fig)
+    else:
+        if dataname =='TYPE_OF_COLLISION':
+            st.markdown("""
+                - A - Head-On
+                - B - Sideswipe
+                - C - Rear End
+                - D - Broadside
+                - E - Hit Object
+                - F - Overturned
+                - G - Vehicle/Pedestrian
+                - H - Other
+                - -- Not Stated
+            """)
+        fig = plt.figure(figsize=(10,5))
+        sns.countplot(x=data[dataname])
+        st.pyplot(fig)  
 elif app_mode == 'Driver':
     st.image('CorRplot.jpeg')
     data=pd.read_csv("parties.csv",na_values=['NA'])
