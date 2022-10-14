@@ -62,7 +62,7 @@ elif app_mode == 'Driver':
         val_count  = data[dataname].value_counts()
         fig = plt.figure(figsize=(10,5))
         #sns.barplot(val_count.index, val_count.values, alpha=0.8)
-        sns.countplot(data[dataname])
+        sns.countplot(x=data[dataname])
         st.pyplot(fig)        
 elif app_mode == 'Victims':
     st.image('CorRplot.jpeg')
