@@ -22,7 +22,7 @@ if app_mode=='Home':
     data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
 ])
     
-    data.rename(columns={"POINT_X": "lat", "POINT_Y": "lon"},inplace = True)
+    data.rename(columns={"POINT_X": "lon", "POINT_Y": "lat"},inplace = True)
 
     st.write(data.head())
     st.markdown('Accident by time of the day ')
