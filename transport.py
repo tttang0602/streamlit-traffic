@@ -101,7 +101,7 @@ elif app_mode == 'Driver':
         sns.countplot(x=data[dataname])
         st.pyplot(fig)        
 elif app_mode == 'Victims':
-    st.image('CorRplot.jpeg')
+    st.image('https://github.com/BigDataForSanDiego/team250/blob/main/Images/Accidents_by_Weather_Condition_with_Severity.png')
     data=pd.read_csv("victims.csv",na_values=['NA'])
     dataname = st.selectbox('Pick the data of your interest',['VICTIM_AGE','VICTIM_SEX','VICTIM_SEATING_POSITION'])
     data.loc[data['VICTIM_AGE']>200,'VICTIM_AGE']=np.NaN
