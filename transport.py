@@ -56,7 +56,7 @@ if app_mode=='Home':
 
 
 elif app_mode == 'Crash information':
-    st.image('CorRplot.jpeg')
+    st.image('https://github.com/BigDataForSanDiego/team250/blob/main/Images/Accidents_in_Cities.png?raw=true')
     dataname = st.selectbox('Pick the data of your interest',['ACCIDENT_YEAR','COLLISION_TIME','TYPE_OF_COLLISION','NUMBER_KILLED','COLLISION_SEVERITY','DAY_OF_WEEK','PARTY_COUNT','NUMBER_INJURED','PCF_VIOL_CATEGORY'])
     data=pd.read_csv("datacrash.csv",na_values=['NA'], usecols=[0,1, 5,8,10,14,22,23,36,37,38,39,40,42,45,46,47,49,50,52,60,74,75,77,78,79
 ])
@@ -82,7 +82,7 @@ elif app_mode == 'Crash information':
         sns.countplot(x=data[dataname])
         st.pyplot(fig)  
 elif app_mode == 'Driver':
-    st.image('CorRplot.jpeg')
+    st.image('https://github.com/BigDataForSanDiego/team250/blob/main/Images/Accidents_by_Time_with_Severity.png?raw=true')
     data=pd.read_csv("parties.csv",na_values=['NA'])
     dataname = st.selectbox('Pick the data of your interest',['PARTY_AGE','PARTY_SEX','PARTY_SOBRIETY','VEHICLE_YEAR','VEHICLE_MAKE'])
     st.write(data['PARTY_AGE'].dtype)
